@@ -77,3 +77,7 @@ func (ep *EpollPoller) SetAutoClose(x bool) {
 func (ep *EpollPoller) ClosePoller() error {
 	return syscall.Close(ep.epollFd)
 }
+
+func NewPoller(PollSize int) (ep NetPoll, err error) {
+	return NewEpollPoller(PollSize)
+}

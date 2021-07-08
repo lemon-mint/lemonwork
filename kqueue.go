@@ -86,3 +86,7 @@ func (kp *KqueuePoller) SetAutoClose(x bool) {
 func (kp *KqueuePoller) ClosePoller() error {
 	return syscall.Close(kp.kqueuefd)
 }
+
+func NewPoller(PollSize int) (kp NetPoll, err error) {
+	return NewKqueuePoller(PollSize)
+}
