@@ -82,3 +82,7 @@ func (kp *KqueuePoller) SetOnDataCallback(f func(fd int)) {
 func (kp *KqueuePoller) SetAutoClose(x bool) {
 	kp.autoClose = x
 }
+
+func (kp *KqueuePoller) ClosePoller() error {
+	return syscall.Close(kp.kqueuefd)
+}

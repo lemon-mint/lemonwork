@@ -10,4 +10,6 @@ type NetPoll interface {
 	SetOnDataCallback(func(fd int))
 
 	SetAutoClose(bool)
+
+	ClosePoller() error
 }
